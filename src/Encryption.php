@@ -8,13 +8,14 @@ namespace Tigress;
  * @author       Rudy Mas <rudy.mas@rudymas.be>
  * @copyright    2024, Rudy Mas (http://rudymas.be/)
  * @license      https://opensource.org/licenses/GPL-3.0 GNU General Public License, version 3 (GPL-3.0)
- * @version      1.0.0
+ * @version      1.0.1
  * @lastmodified 2024-10-24
  * @package      Tigress
  */
 class Encryption
 {
     protected string $key = '';
+    protected mixed $keyPassword = false;
     protected string $iv = '';
     protected string $hash = '';
 
@@ -34,9 +35,10 @@ class Encryption
      * @param string $key
      * @return void
      */
-    public function setKey(string $key): void
+    public function setKey(string $key, mixed $password = false): void
     {
         $this->key = $key;
+        $this->keyPassword = $password;
     }
 
     /**

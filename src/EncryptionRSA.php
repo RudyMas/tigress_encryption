@@ -56,7 +56,7 @@ class EncryptionRSA extends Encryption
     public function encrypt(string $data): string
     {
         // Load the key outside this class through $rsa->setKey('...');
-        $key = RSA::load($this->key);
+        $key = RSA::load($this->key, $this->keyPassword);
         return base64_encode($key->encrypt($data));
     }
 
@@ -69,7 +69,7 @@ class EncryptionRSA extends Encryption
     public function decrypt(string $data): string
     {
         // Load the key outside this class through $rsa->setKey('...');
-        $key = RSA::load($this->key);
+        $key = RSA::load($this->key, $this->keyPassword);
         return $key->decrypt(base64_decode($data));
     }
 }
