@@ -33,6 +33,7 @@ class Encryption
      * Set the key
      *
      * @param string $key
+     * @param mixed|false $password
      * @return void
      */
     public function setKey(string $key, mixed $password = false): void

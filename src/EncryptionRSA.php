@@ -21,7 +21,7 @@ class EncryptionRSA extends Encryption
      *
      * @param int $bits
      * @param string $type
-     * @param string|false $password
+     * @param mixed|false $password
      * @return string
      */
     public function createPrivateKey(int $bits, string $type = 'PKCS1', mixed $password = false): string
@@ -38,7 +38,7 @@ class EncryptionRSA extends Encryption
      *
      * @param string $privateKey
      * @param string $type
-     * @param string|false $password
+     * @param mixed|false $password
      * @return string
      */
     public function createPublicKey(string $privateKey, string $type = 'PKCS1', mixed $password = false): string
