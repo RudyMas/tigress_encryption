@@ -2,23 +2,21 @@
 
 namespace Tigress;
 
-use phpseclib3\Crypt\RSA;
-
 /**
  * Class Encryption (PHP version 8.3)
  *
  * @author       Rudy Mas <rudy.mas@rudymas.be>
  * @copyright    2024, Rudy Mas (http://rudymas.be/)
  * @license      https://opensource.org/licenses/GPL-3.0 GNU General Public License, version 3 (GPL-3.0)
- * @version      0.1.0
+ * @version      1.0.0
  * @lastmodified 2024-10-24
  * @package      Tigress
  */
 class Encryption
 {
-    private string $key = '';
-    private string $iv = '';
-    private string $hash = '';
+    protected string $key = '';
+    protected string $iv = '';
+    protected string $hash = '';
 
     /**
      * Get the version of the Encryption
@@ -27,37 +25,69 @@ class Encryption
      */
     public static function version(): string
     {
-        return '0.1.0';
+        return '1.0.0';
     }
 
     /**
-     * Create a private key
+     * Set the key
      *
-     * @param int $bits
-     * @param string $type
-     * @param string $password
-     * @return string
+     * @param string $key
+     * @return void
      */
-    public function createPrivateKey(int $bits, string $type, string $password = ''): string
+    public function setKey(string $key): void
     {
-        $key = RSA::createKey($bits);
-        $privateKey = $key->toString($type, ['password' => $password]);
-        print('Private key:<br>' . $privateKey);
-        return $privateKey;
+        $this->key = $key;
     }
 
     /**
-     * Create a public key
+     * Get the key
      *
-     * @param string $privateKey
-     * @param string $password
      * @return string
      */
-    public function createPublicKey(string $privateKey, string $password): string
+    public function getKey(): string
     {
-        $key = RSA::load($privateKey, $password);
-        $publicKey = $key->getPublicKey();
-        print('Public key:<br>' . $publicKey);
-        return $publicKey;
+        return $this->key;
+    }
+
+    /**
+     * Set the IV
+     *
+     * @param string $iv
+     * @return void
+     */
+    public function setIv(string $iv): void
+    {
+        $this->iv = base64_decode($iv);
+    }
+
+    /**
+     * Get the IV
+     *
+     * @return string
+     */
+    public function getIv(): string
+    {
+        return base64_encode($this->iv);
+    }
+
+    /**
+     * Set the hash
+     *
+     * @param string $hash
+     * @return void
+     */
+    public function setHash(string $hash): void
+    {
+        $this->hash = $hash;
+    }
+
+    /**
+     * Get the hash
+     *
+     * @return string
+     */
+    public function getHash(): string
+    {
+        return $this->hash;
     }
 }
