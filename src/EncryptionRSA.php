@@ -2,6 +2,7 @@
 
 namespace Tigress;
 
+use LengthException;
 use phpseclib3\Crypt\RSA;
 
 /**
@@ -10,8 +11,8 @@ use phpseclib3\Crypt\RSA;
  * @author       Rudy Mas <rudy.mas@rudymas.be>
  * @copyright    2024, Rudy Mas (http://rudymas.be/)
  * @license      https://opensource.org/licenses/GPL-3.0 GNU General Public License, version 3 (GPL-3.0)
- * @version      1.0.1
- * @lastmodified 2024-10-24
+ * @version      1.1.0
+ * @lastmodified 2024-10-25
  * @package      Tigress
  */
 class EncryptionRSA extends Encryption
@@ -70,6 +71,17 @@ class EncryptionRSA extends Encryption
     {
         // Load the key outside this class through $rsa->setKey('...');
         $key = RSA::load($this->key, $this->keyPassword);
-        return $key->decrypt(base64_decode($data));
+
+        if (empty($data)) {
+            return '';
+        }
+
+        try {
+            $text = $key->decrypt(base64_decode($data));
+        } catch (LengthException $e) {
+            $text = 'Data is corrupted!';
+        }
+
+        return $text;
     }
 }

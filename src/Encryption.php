@@ -8,8 +8,8 @@ namespace Tigress;
  * @author       Rudy Mas <rudy.mas@rudymas.be>
  * @copyright    2024, Rudy Mas (http://rudymas.be/)
  * @license      https://opensource.org/licenses/GPL-3.0 GNU General Public License, version 3 (GPL-3.0)
- * @version      1.0.1
- * @lastmodified 2024-10-24
+ * @version      1.1.0
+ * @lastmodified 2024-10-25
  * @package      Tigress
  */
 class Encryption
@@ -26,7 +26,7 @@ class Encryption
      */
     public static function version(): string
     {
-        return '1.0.1';
+        return '1.1.0';
     }
 
     /**
