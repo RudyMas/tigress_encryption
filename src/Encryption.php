@@ -3,63 +3,21 @@
 namespace Tigress;
 
 /**
- * Class Encryption (PHP version 8.4)
+ * Class Encryption (PHP version 8.3)
  *
  * @author       Rudy Mas <rudy.mas@rudymas.be>
  * @copyright    2024, Rudy Mas (http://rudymas.be/)
  * @license      https://opensource.org/licenses/GPL-3.0 GNU General Public License, version 3 (GPL-3.0)
- * @version      2024.11.27.0
+ * @version      1.1.0
+ * @lastmodified 2024-10-25
  * @package      Tigress
  */
 class Encryption
 {
-    /**
-     * @var string
-     */
-    protected string $key = '' {
-        get {
-            return $this->key;
-        }
-        set {
-            $this->key = $value;
-        }
-    }
-
-    /**
-     * @var mixed|bool
-     */
-    protected mixed $keyPassword = false {
-        get {
-            return $this->keyPassword;
-        }
-        set {
-            $this->keyPassword = $value;
-        }
-    }
-
-    /**
-     * @var string
-     */
-    private string $iv = '' {
-        get {
-            return base64_encode($this->iv);
-        }
-        set {
-            $this->iv = base64_decode($value);
-        }
-    }
-
-    /**
-     * @var string
-     */
-    private string $hash = '' {
-        get {
-            return $this->hash;
-        }
-        set {
-            $this->hash = $value;
-        }
-    }
+    protected string $key = '';
+    protected mixed $keyPassword = false;
+    protected string $iv = '';
+    protected string $hash = '';
 
     /**
      * Get the version of the Encryption
@@ -68,7 +26,7 @@ class Encryption
      */
     public static function version(): string
     {
-        return '2024.11.27.0';
+        return '1.1.0';
     }
 
     /**
@@ -82,5 +40,57 @@ class Encryption
     {
         $this->key = $key;
         $this->keyPassword = $password;
+    }
+
+    /**
+     * Get the key
+     *
+     * @return string
+     */
+    public function getKey(): string
+    {
+        return $this->key;
+    }
+
+    /**
+     * Set the IV
+     *
+     * @param string $iv
+     * @return void
+     */
+    public function setIv(string $iv): void
+    {
+        $this->iv = base64_decode($iv);
+    }
+
+    /**
+     * Get the IV
+     *
+     * @return string
+     */
+    public function getIv(): string
+    {
+        return base64_encode($this->iv);
+    }
+
+    /**
+     * Set the hash
+     *
+     * @param string $hash
+     * @return void
+     */
+    public function setHash(string $hash): void
+    {
+        $this->hash = $hash;
+    }
+
+    /**
+     * Get the hash
+     *
+     * @return string
+     */
+    public function getHash(): string
+    {
+        return $this->hash;
     }
 }

@@ -2,20 +2,20 @@
 
 namespace Tigress;
 
-use AllowDynamicProperties;
 use phpseclib3\Crypt\TripleDES;
 use Random\RandomException;
 
 /**
- * Class Encryption DES (PHP version 8.4)
+ * Class Encryption DES (PHP version 8.3)
  *
  * @author       Rudy Mas
  * @copyright    2024, Rudy Mas
  * @license      https://opensource.org/licenses/GPL-3.0 GNU General Public License, version 3 (GPL-3.0)
- * @version      2024.11.27.0
+ * @version      1.0.0
+ * @lastmodified 2024-10-24
  * @package      Tigress
  */
-#[AllowDynamicProperties] class EncryptionDES extends Encryption
+class EncryptionDES extends Encryption
 {
     /**
      * Create a DES key

@@ -6,12 +6,13 @@ use LengthException;
 use phpseclib3\Crypt\RSA;
 
 /**
- * Class Encryption RSA (PHP version 8.4)
+ * Class Encryption RSA (PHP version 8.3)
  *
  * @author       Rudy Mas <rudy.mas@rudymas.be>
  * @copyright    2024, Rudy Mas (http://rudymas.be/)
  * @license      https://opensource.org/licenses/GPL-3.0 GNU General Public License, version 3 (GPL-3.0)
- * @version      2024.11.27.0
+ * @version      1.1.0
+ * @lastmodified 2024-10-25
  * @package      Tigress
  */
 class EncryptionRSA extends Encryption
