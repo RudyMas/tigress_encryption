@@ -6,13 +6,12 @@ use phpseclib3\Crypt\TripleDES;
 use Random\RandomException;
 
 /**
- * Class Encryption DES (PHP version 8.3)
+ * Class Encryption DES (PHP version 8.4)
  *
  * @author       Rudy Mas
  * @copyright    2024, Rudy Mas
  * @license      https://opensource.org/licenses/GPL-3.0 GNU General Public License, version 3 (GPL-3.0)
- * @version      1.0.0
- * @lastmodified 2024-10-24
+ * @version      2024.11.28.0
  * @package      Tigress
  */
 class EncryptionDES extends Encryption
