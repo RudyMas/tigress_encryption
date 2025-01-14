@@ -11,7 +11,7 @@ use Random\RandomException;
  * @author       Rudy Mas <rudy.mas@rudymas.be>
  * @copyright    2024, Rudy Mas (http://rudymas.be/)
  * @license      https://opensource.org/licenses/GPL-3.0 GNU General Public License, version 3 (GPL-3.0)
- * @version      2024.11.28.0
+ * @version      2025.01.14.0
  * @package      Tigress
  */
 class EncryptionAES extends Encryption
@@ -29,6 +29,16 @@ class EncryptionAES extends Encryption
      * @throws RandomException
      */
     public function createKey(int $bytes = 32): string
+    {
+        return base64_encode(random_bytes($bytes));
+    }
+
+    /**
+     * Create an IV
+     *
+     * @throws RandomException
+     */
+    public function createIV(int $bytes = 16): string
     {
         return base64_encode(random_bytes($bytes));
     }
