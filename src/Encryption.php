@@ -3,12 +3,12 @@
 namespace Tigress;
 
 /**
- * Class Encryption (PHP version 8.4)
+ * Class Encryption (PHP version 8.5)
  *
  * @author       Rudy Mas <rudy.mas@rudymas.be>
  * @copyright    2024-2025, Rudy Mas (http://rudymas.be/)
  * @license      https://opensource.org/licenses/GPL-3.0 GNU General Public License, version 3 (GPL-3.0)
- * @version      2024.11.28.1
+ * @version      2025.12.09.0
  * @package      Tigress
  */
 class Encryption
@@ -25,7 +25,7 @@ class Encryption
      */
     public static function version(): string
     {
-        return '2024.11.28';
+        return '2025.12.09';
     }
 
     /**
